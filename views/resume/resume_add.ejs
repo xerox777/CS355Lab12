@@ -23,6 +23,9 @@
                  <label for = "account_id">Account ID: <input style="margin-left:60px;" class="right" name="account_id" type="text" />
                 <br />
                         <% for(var i=0; resume.length > i; i++ ) { %>
+                            <select>
+                                <option value="resume[i].account_id"></option>
+                            </select>
                             <input type="checkbox" name="account_id" value="<%= resume[i].account_id %>"> <%= resume[i].account_id%>
                         <br />
                         <% } %>
