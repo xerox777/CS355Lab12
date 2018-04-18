@@ -10,10 +10,17 @@ exports.getAll = function(callback) {
         callback(err, result);
     });
 };
+exports.getacAll = function(callback) {
+    var query = 'SELECT * FROM account;';
+
+    connection.query(query, function (err, result) {
+        callback(err, result);
+    });
+};
 
 exports.insert = function(params, callback) {
-    var query = 'INSERT INTO resume (fname, lname, rname) VALUES (?,?,?)';
-    var queryData = [params.fname, params.lname, params.rname];
+    var query = 'INSERT INTO resume (fname, lname, rname, account_id) VALUES (?,?,?,?)';
+    var queryData = [params.fname, params.lname, params.rname, params.account_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);

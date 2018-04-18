@@ -18,7 +18,14 @@ router.get('/all', function(req, res, next){
 });
 
 router.get('/add', function(req, res) {
-    res.render('resume/resume_add');
+    resume_dal.getacAll(function(err, result) {
+        if (err) {
+            res.send(err);
+        }
+        else {
+            res.render('resume/resume_add', {resume: result});
+        }
+    });
 });
 
 router.get('/insert', function(req, res) {
