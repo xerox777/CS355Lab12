@@ -34,8 +34,8 @@ exports.delete = function(params, callback) {
 };
 
 exports.insert = function(params, callback) {
-    var query = 'INSERT INTO resume (fname, lname, rname, account_id) VALUES (?,?,?,?)';
-    var queryData = [params.fname, params.lname, params.rname, params.account_id];
+    var query = 'INSERT INTO resume (account_id, fname, lname, rname) VALUES (?,?,?,?)';
+    var queryData = [params.account_id, params.fname, params.lname, params.rname];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
