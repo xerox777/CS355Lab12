@@ -11,7 +11,7 @@
 </head>
     <body>
         <h1>Add New Resume Info</h1>
-        <form action="/resume/insert" method="get">
+        <form action="/resume/insert" method="get" >
                  <div style="width:400px; margin-left:10px;">
                  <fieldset style="margin-top:10px;">
                 <label for = "fname">First Name: <input style="margin-left:30px;" class="right" name="fname" type="text" />
@@ -20,9 +20,9 @@
                 <br />
                 <label for = "rname">Resume Name: <input style="margin-left:30px;" class="right" name="rname" type="text" />
                 <br />
-                <input type="hidden" name="account_id" value="<%=resume.resume_id%>"/>
-                <input type="submit" style="color: green; background-color: cyan;"/>
 
+                <input type="submit" style="color: green; background-color: cyan;"/>
+                <intput type="hidden" name="account_id" value="<%=resume.account_id%>"/>
 
                 </fieldset>
                 </div>

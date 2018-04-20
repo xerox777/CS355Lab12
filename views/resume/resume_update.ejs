@@ -12,22 +12,24 @@
 <body>
 <h1>Edit Existing Resume</h1>
 <form action="/resume/update" method="get">
-    Resume Name: <input id="rname" name="rname" type="text" value="<%= resume[0].rname%>" />
+
+    Resume Name: <input id="rname" name="rname" type="text" value="<%= resume.rname%>" />
     <br />
-    First Name: <input id="fname" name="fname" type="text" value="<%= resume[0].fname %>" />
+    First Name: <input id="fname" name="fname" type="text" value="<%= resume.fname %>" />
     <br />
-    Last Name: <input id="lname" name="lname" type="text" value="<%= resume[0].lname %>" />
+    Last Name: <input id="lname" name="lname" type="text" value="<%= resume.lname %>" />
     <br />
     <select name="account_id">
-    <% for(var i=0; resume.length > i; i++ ) { %>
-    <option name ="account_id" value="<%= resume[i].account_id %>" >
-            <%=resume[i].account_id %>
+    <% for(var i=0; res.length > i; i++ ) { %>
+    <option name ="account_id" value="<%= res[i].account_id %>" >
+            <%=res[i].account_id %>
     </option>
 
     <% } %>
     </select>
+    <br />
     <input type="submit" />
-    <input type="hidden" id="resume_id" name="resume_id" value="<%= resume[0].resume_id %>" />
+    <input type="hidden" id="resume_id" name="resume_id" value="<%= resume.resume_id %>" />
 </form>
 </body>
 </html>

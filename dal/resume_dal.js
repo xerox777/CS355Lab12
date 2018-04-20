@@ -3,6 +3,15 @@ var db = require('./db_connection.js');
 
 var connection = mysql.createConnection(db.config);
 
+
+exports.getinfo = function(resume_id, callback) {
+    var query = 'CALL resume_getinfo(?)';
+    var queryData = [resume_id];
+    connection.query(query, queryData, function(err, result){
+        callback(err, result);
+    });
+};
+
 exports.getAll = function(callback) {
     var query = 'SELECT * FROM resume;';
 

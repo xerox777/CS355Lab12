@@ -18,9 +18,11 @@ router.get('/all', function(req, res, next){
 });
 
 router.get('/edit', function(req, res) {
-    resume_dal.getAll(function(err, result) {
-        res.render('resume/resume_update',
-            {resume: result});
+    resume_dal.getinfo(req.query.resume_id, function(err, result) {
+        resume_dal.getacAll(function(err, result1) {
+            res.render('resume/resume_update',
+                {resume: result[0][0], res: result1});
+        });
 
     });
 });
@@ -55,7 +57,7 @@ router.get('/add', function(req, res) {
         }
         else {
             resume_dal.getAll(function(err, resume){
-            res.render('resume/resume_add', {resume: result, resumeINFO: resume});
+            res.render('resume/resume_add', {resume: req.query, resumeINFO: resume});
         });
         }
     });

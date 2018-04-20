@@ -33,7 +33,7 @@
                     <td><%= resume[i].lname %></td>
                     <td><%= resume[i].rname %></td>
                     <td><%= resume[i].account_id %></td>
-                    <td><a href="/resume/edit">EDIT</a></td>
+                    <td>&nbsp;<a href="/resume/edit?resume_id=<%= resume[i].resume_id %>">EDIT</a></td>
                     <td>&nbsp;<a href="/resume/delete?resume_id=<%= resume[i].resume_id %>">Delete</a></td>
 
                     </tr>
