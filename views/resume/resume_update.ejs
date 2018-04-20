@@ -18,16 +18,14 @@
     <br />
     Last Name: <input id="lname" name="lname" type="text" value="<%= resume[0].lname %>" />
     <br />
+    <select name="account_id">
+    <% for(var i=0; resume.length > i; i++ ) { %>
+    <option name ="account_id" value="<%= resume[i].account_id %>" >
+            <%=resume[i].account_id %>
+    </option>
 
-    <% for(var i=0; resume.length > i; i++ ) {
-        var checked ="";
-        if(resume[i].account_id != null) {
-            checked = "checked";
-        }
-    %>
-    <input type="checkbox" name="account_id" <%= checked %> value="<%= resume[i].account_id %>"> <%= resume[i].account_id %>
-    <br />
     <% } %>
+    </select>
     <input type="submit" />
     <input type="hidden" id="resume_id" name="resume_id" value="<%= resume[0].resume_id %>" />
 </form>

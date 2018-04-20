@@ -20,17 +20,15 @@
             <br />
             <label for = "rname">Resume Name: <input style="margin-left:30px;" class="right" name="rname" type="text" />
              <br />
-
+            <select name="account_id">
             <% for(var i=0; resume.length > i; i++ ) { %>
-                <select>
+
                 <option name ="account_id" value="<%= resume[i].account_id %>"> <%= resume[i].account_id%> +
                     <%=resume[i].fname%> +  <%=resume[i].lname %>
                 </option>
-                </select>
-            <input type="checkbox" name="account_id" value="<%= resume[i].account_id %>"> <%= resume[i].account_id %>
-                    <%resume[i].fname%>  <%resume[i].lname%>
-            <br />
+
                 <% } %>
+            </select>
 
             <input type="submit" style="color: green; background-color: cyan;"/>
         </fieldset>
