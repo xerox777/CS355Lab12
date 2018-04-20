@@ -44,7 +44,7 @@ router.get('/add/user', function(req, res) {
             res.send(err);
         }
         else {
-            res.redirect(302, 'resume/all');
+            res.redirect(302, '/resume/all');
         }
     });
 });
@@ -95,5 +95,17 @@ router.get('/delete', function(req, res){
             }
         });
 });
+
+router.get('/add/resume', function(req, res) {
+    resume_dal.select(req.qeury, function(err, result) {
+        if (err) {
+            res.send(err);
+        }
+        else {
+            res.render('resume/resume_add_resume', {account_id: req.query.account_id, resume: result});
+        }
+    });
+});
+
 
 module.exports = router;

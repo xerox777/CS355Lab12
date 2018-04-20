@@ -26,8 +26,10 @@ exports.getacAll = function(callback) {
         callback(err, result);
     });
 };
+
 exports.select = function(params, callback) {
-    var queryData = [params.account_id];
+    var query = 'call resume_getinfo(?)';
+    var queryData = [params.resume_id];
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
     });
