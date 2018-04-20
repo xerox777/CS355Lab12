@@ -36,6 +36,18 @@ router.get('/add/selectuser', function(req, res) {
     });
 });
 
+router.get('/add/user', function(req, res) {
+    resume_dal.select(req.query, function(err, result) {
+        if (err) {
+            res.send(err);
+        }
+        else {
+            res.redirect(302, 'resume/all');
+        }
+    });
+});
+
+
 router.get('/add', function(req, res) {
     resume_dal.getacAll(function(err, result) {
         if (err) {
@@ -69,6 +81,17 @@ router.get('/update', function(req, res){
         }
     });
 
+});
+
+router.get('/delete', function(req, res){
+        resume_dal.delete(req.query, function(err, result){
+            if(err){
+                res.send(err);
+            }
+            else {
+                res.redirect(302, '/resume/all');
+            }
+        });
 });
 
 module.exports = router;

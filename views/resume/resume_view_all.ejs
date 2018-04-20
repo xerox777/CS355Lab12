@@ -34,8 +34,9 @@
                     <td><%= resume[i].rname %></td>
                     <td><%= resume[i].account_id %></td>
                     <td><a href="/resume/edit">EDIT</a></td>
-                    <td><a href="/resume/delete">DELETE</a></td>
-                </tr>
+                    <td>&nbsp;<a href="/resume/delete?resume_id=<%= resume[i].resume_id %>">Delete</a></td>
+
+                    </tr>
 
             <% } %>
         </table>

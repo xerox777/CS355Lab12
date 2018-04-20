@@ -17,6 +17,21 @@ exports.getacAll = function(callback) {
         callback(err, result);
     });
 };
+exports.select = function(params, callback) {
+    var queryData = [params.account_id];
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+    });
+
+};
+
+exports.delete = function(params, callback) {
+    var query = 'DELETE FROM resume WHERE resume_id = ?';
+    var queryData = [params.resume_id];
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+    });
+};
 
 exports.insert = function(params, callback) {
     var query = 'INSERT INTO resume (fname, lname, rname, account_id) VALUES (?,?,?,?)';
