@@ -27,3 +27,12 @@ exports.insert = function(params, callback) {
     });
 
 };
+
+exports.update = function(params, callback) {
+    var query = 'UPDATE resume SET rname = ?, fname = ?, lname = ?, account_id = ? WHERE resume_id = ?';
+    var queryData = [params.rname, params.fname, params.lname, params.account_id, params.resume_id];
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+    });
+};
+

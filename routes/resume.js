@@ -17,13 +17,34 @@ router.get('/all', function(req, res, next){
     })
 });
 
+router.get('/edit', function(req, res) {
+    resume_dal.getAll(function(err, result) {
+        res.render('resume/resume_update',
+            {resume: result});
+
+    });
+});
+
+router.get('/add/selectuser', function(req, res) {
+    resume_dal.getAll(function(err, result) {
+        if (err) {
+            res.send(err);
+        }
+        else {
+            res.render('resume/resume_add_user', {resume: result});
+        }
+    });
+});
+
 router.get('/add', function(req, res) {
     resume_dal.getacAll(function(err, result) {
         if (err) {
             res.send(err);
         }
         else {
-            res.render('resume/resume_add', {resume: result});
+            resume_dal.getAll(function(err, resume){
+            res.render('resume/resume_add', {resume: result, resumeINFO: resume});
+        });
         }
     });
 });
@@ -39,5 +60,15 @@ router.get('/insert', function(req, res) {
     });
 });
 
+router.get('/update', function(req, res){
+    resume_dal.update(req.query, function(err, result){
+        if(err){
+            res.send(err);
+        } else {
+            res.redirect(302, '/resume/all');
+        }
+    });
+
+});
 
 module.exports = router;
