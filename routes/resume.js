@@ -4,6 +4,7 @@
 var express = require('express');
 var router = express.Router();
 var resume_dal = require('../dal/resume_dal');
+var account_dal = require('../dal/account_dal');
 
 router.get('/all', function(req, res, next){
     resume_dal.getAll(function(err, result) {
@@ -33,7 +34,11 @@ router.get('/add/selectuser', function(req, res) {
             res.send(err);
         }
         else {
-            res.render('resume/resume_add_user', {resume: result});
+            account_dal.getAll(function(error, ressult) {
+
+
+            res.render('resume/resume_add_user', {resume: result, acc: ressult});
+          });
         }
     });
 });

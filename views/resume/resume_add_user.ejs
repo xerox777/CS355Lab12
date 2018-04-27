@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ecorp - Add</title>
+    <title>Resume - Add</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -14,10 +14,10 @@
 <form action="/resume/add" method="get">
     <div style="width:400px; margin-left:10px;">
         <fieldset style="margin-top:10px;">
-            <select name="account_id">
+            <select name="account_id" id = "account_id">
             <% for(var i=0; resume.length > i; i++ ) { %>
 
-                <option name ="account_id" value="<%= resume[i].account_id %>"> <%= resume[i].account_id%> +
+                <option value="<%= resume[i].account_id %>"> <%= resume[i].account_id%> +
                     <%=resume[i].fname%> +  <%=resume[i].lname %>
                 </option>
 
@@ -25,6 +25,7 @@
             </select>
 
             <input type="submit" style="color: green; background-color: cyan;"/>
+
         </fieldset>
     </div>
 </form>
