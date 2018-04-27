@@ -24,7 +24,7 @@ exports.getinfo = function(skill_id, callback) {
 
 
 exports.getAll = function(callback) {
-    var query = 'CALL skill_getall();';
+    var query = 'CALL skill_getall()';
 
     connection.query(query, function(err, result) {
         callback(err, result);

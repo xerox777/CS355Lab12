@@ -20,9 +20,9 @@
     Last Name: <input id="lname" name="lname" type="text" value="<%= resume.lname %>" />
     <br />
     <select name="account_id">
-    <% for(var i=0; acc.length > i; i++ ) { %>
+    <% for(var i=0; res.length > i; i++ ) { %>
     <option name ="account_id" value="<%= res[i].account_id %>" >
-            <%=acc[i].account_id %>
+            <%=res[i].account_id %>
     </option>
 
     <% } %>

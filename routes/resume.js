@@ -5,6 +5,7 @@ var express = require('express');
 var router = express.Router();
 var resume_dal = require('../dal/resume_dal');
 var account_dal = require('../dal/account_dal');
+var skill_dal = require('../dal/skill_dal');
 
 router.get('/all', function(req, res, next){
     resume_dal.getAll(function(err, result) {
@@ -39,17 +40,6 @@ router.get('/add/selectuser', function(req, res) {
 
             res.render('resume/resume_add_user', {resume: result, acc: ressult});
           });
-        }
-    });
-});
-
-router.get('/add/user', function(req, res) {
-    resume_dal.select(req.query, function(err, result) {
-        if (err) {
-            res.send(err);
-        }
-        else {
-            res.redirect(302, '/resume/all');
         }
     });
 });
@@ -102,13 +92,15 @@ router.get('/delete', function(req, res){
 });
 
 router.get('/add/resume', function(req, res) {
-    resume_dal.select(req.qeury, function(err, result) {
+    skill_dal.getAll(function(err, result) {
         if (err) {
             res.send(err);
         }
         else {
-            res.render('resume/resume_add_resume', {account_id: req.query.account_id, resume: result});
-        }
+            resume_dal.getAll(function(error, resume) {
+                res.render('resume/resume_add_resume', {skill: result, resume: resume});
+                });
+            }
     });
 });
 

@@ -13,14 +13,14 @@ exports.getinfo = function(resume_id, callback) {
 };
 
 exports.getAll = function(callback) {
-    var query = 'SELECT * FROM resume;';
+    var query = 'SELECT * FROM resume';
 
     connection.query(query, function (err, result) {
         callback(err, result);
     });
 };
 exports.getacAll = function(callback) {
-    var query = 'SELECT * FROM account;';
+    var query = 'SELECT * FROM account';
 
     connection.query(query, function (err, result) {
         callback(err, result);

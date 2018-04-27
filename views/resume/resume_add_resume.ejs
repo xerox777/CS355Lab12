@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ecorp - Add</title>
+    <title>Resume - Add</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -14,15 +14,13 @@
 <form action="/resume/insert" method="get" >
     <div style="width:400px; margin-left:10px;">
         <fieldset style="margin-top:10px;">
-            <label for = "fname">First Name: <input style="margin-left:30px;" class="right" name="fname" type="text" />
+                <label for = "rname">Resume Name: <input style="margin-left:30px;" class="right" name="rname" type="text" />
                 <br />
-                <label for = "lname">Last Name: <input style="margin-left:30px;" class="right" name="lname" type="text" />
+                    <% for(var i=0; skill.length > i; i++ ) { %>
+                    <input type="checkbox" name="skill_name" value="<%= skill[i].skill_name %>"> <%= skill[i].skill_name %>
                     <br />
-                    <label for = "rname">Resume Name: <input style="margin-left:30px;" class="right" name="rname" type="text" />
-                        <br />
-
-                        <input type="submit" style="color: green; background-color: cyan;"/>
-                        <intput type="hidden" name="account_id" value="<%=resume.account_id%>"/>
+                    <% } %>
+                <input type="submit" style="color: green; background-color: cyan;"/>
 
         </fieldset>
     </div>
