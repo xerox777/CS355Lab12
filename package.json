@@ -2,6 +2,12 @@
   "name": "jscli",
   "version": "0.0.1",
   "dependencies": {
-    "mysql": "*"
+    "all": "0.0.0",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.9",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
+    "mysql": "*",
+    "serve-favicon": "^2.5.0"
   }
 }

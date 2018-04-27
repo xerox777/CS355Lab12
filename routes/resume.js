@@ -97,9 +97,8 @@ router.get('/add/resume', function(req, res) {
             res.send(err);
         }
         else {
-            resume_dal.getAll(function(error, resume) {
-                res.render('resume/resume_add_resume', {skill: result, resume: resume});
-                });
+                res.render('resume/resume_add_resume', {skill: result});
+
             }
     });
 });
