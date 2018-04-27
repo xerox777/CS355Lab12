@@ -22,10 +22,17 @@ exports.getinfo = function(skill_id, callback) {
     });
 };
 
+exports.delete = function(params, callback) {
+    var query = 'DELETE FROM skill WHERE skill_id = ?';
+    var queryData = [params.skill_id];
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+    });
+};
 
 exports.getAll = function(callback) {
-    var query = 'CALL skill_getall()';
-
+    //var query = 'CALL skill_getall()';
+    var query = 'SELECT * FROM skill';
     connection.query(query, function(err, result) {
         callback(err, result);
     });

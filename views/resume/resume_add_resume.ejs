@@ -11,11 +11,14 @@
 </head>
 <body>
 <h1>Add New Resume Info</h1>
-<form action="/resume/insert" method="get" >
+<form action="/resume/triinsert" method="get" >
     <div style="width:400px; margin-left:10px;">
         <fieldset style="margin-top:10px;">
                 <label for = "rname">Resume Name: <input style="margin-left:30px;" class="right" name="rname" type="text" />
                 <br />
+                <br />
+                Skills
+                <br/>
                     <% for(var i=0; skill.length > i; i++ ) { %>
                     <input type="checkbox" name="skill_name" value="<%= skill[i].skill_name %>"> <%= skill[i].skill_name %>
                     <br />

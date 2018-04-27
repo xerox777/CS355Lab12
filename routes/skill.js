@@ -26,6 +26,16 @@ router.get('/edit', function(req, res){
     });
 });
 
+router.get('/delete', function(req, res){
+    skill_dal.delete(req.query, function(err, result){
+        if(err){
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/skill/all');
+        }
+    });
+});
 
 /* GET users listing. */
 router.get('/all', function(req, res, next) {
@@ -35,7 +45,7 @@ router.get('/all', function(req, res, next) {
             res.send(err);
         } else {
             console.log(result);
-            res.render('skill/skill_view', {skill: result[0]});
+            res.render('skill/skill_view', {skill: result});
         }
 
     });
